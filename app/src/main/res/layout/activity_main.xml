@@ -1,22 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Camera Preview View -->
+    <!-- Assuming you have a PreviewView for your camera functionality -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        app:scaleType="fillStart" />
 
-    <!-- filepath: res/layout/activity_main.xml -->
+    <!-- Capture Button -->
     <Button
-        android:id="@+id/openCameraButton"
-        android:layout_width="150dp"
-        android:padding="0dp"
-
+        android:id="@+id/captureButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="800dp"
-        android:textColor="@color/green"
-        android:radius="25dp"
-        android:backgroundTint="@color/black"
-        android:text="Open Camera" />
+        android:layout_gravity="center_horizontal"
+        android:text="Capture Image"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Bluetooth Control Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/connectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/disconnectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconnect"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"/> <!-- Initially disabled -->
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Data"
+            android:enabled="false"/> <!-- Initially disabled -->
+
+    </LinearLayout>
+
+    <!-- Bluetooth Status TextView -->
+    <TextView
+        android:id="@+id/bluetoothStatusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Bluetooth Status: Idle"
+        android:gravity="center_horizontal"/>
+
+    <!-- Bluetooth Data TextView (for received data) -->
+    <TextView
+        android:id="@+id/bluetoothDataTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:text="Received Data:\n"
+        android:background="@android:color/darker_gray"
+        android:padding="8dp"/>
+
 
 </LinearLayout>
